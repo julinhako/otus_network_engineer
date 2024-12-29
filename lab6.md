@@ -189,7 +189,7 @@ a.	Настройте интерфейс S1 F0/5 с теми же парамет
 b.	Сохраните текущую конфигурацию в файл загрузочной конфигурации.
 Проверка транкинга.
 ```
-interface f0/5
+int f0/5
 sw mode trunk
 sw trunk native vlan 1000
 sw trunk allowed vlan 10,20,30,1000
@@ -217,20 +217,20 @@ c.	Убедитесь, что вспомогательные интерфейс�
 int g0/0/1
 no shut
 exit
-interface g0/0/1.10
+int g0/0/1.10
 en d 10
 description Management Network
 ip address 192.168.10.1 255.255.255.0
-interface g0/0/1.20
+int g0/0/1.20
 en d 20
 description Sales Network
 ip address 192.168.20.1 255.255.255.0
-interface g0/0/1.30
+int g0/0/1.30
 en d 30
 description Operations Network
 ip address 192.168.30.1 255.255.255.0
 
-interface g0/0/1.1000
+int g0/0/1.1000
 en d 1000 native
 description Native VLAN
 ```
