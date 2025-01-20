@@ -160,6 +160,7 @@ conf t
 int g0/0/1
 ip ospf priority 50
 ip ospf hello-interval 30
+ip ospf dead-interval 120
 exit
 ip route 0.0.0.0 0.0.0.0 loopback 1
 router ospf 56
@@ -173,6 +174,7 @@ R2
 conf t
 int g0/0/1
 ip ospf hello-interval 30
+ip ospf dead-interval 120
 int loopback 1
 ip ospf network point-to-point
 exit
@@ -185,7 +187,7 @@ clear ip ospf process
 ## Шаг 2. Убедитесь, что оптимизация OSPFv2 реализовалась.
 a.	Выполните команду show ip ospf interface g0/0/1 на R1 и убедитесь, что приоритет интерфейса установлен равным 50, а временные интервалы — Hello 30, Dead 120, а тип сети по умолчанию — Broadcast
  
- ![alt text](image-5.png)
+![alt text](image-9.png)
 
 b.	На R1 выполните команду show ip route ospf, чтобы убедиться, что сеть R2 Loopback1 присутствует в таблице маршрутизации. Обратите внимание на разницу в метрике между этим выходным и предыдущим выходным. Также обратите внимание, что маска теперь составляет 24 бита, в отличие от 32 битов, ранее объявленных.
  
