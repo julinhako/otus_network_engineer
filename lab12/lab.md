@@ -116,6 +116,10 @@ a.	Назначьте используемые порты соответству
 int f0/6
 sw mode access
 sw access vlan 30
+
+int f0/18
+sw mode access
+sw access vlan 40
 ```
 b.	Выполните команду show vlan brief, чтобы убедиться, что сети VLAN назначены правильным интерфейсам.
  
